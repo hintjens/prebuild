@@ -32,6 +32,7 @@ var rc = module.exports = require('rc')('prebuild', {
   all: false,
   force: false,
   debug: false,
+  incremental: false,
   path: '.',
   proxy: process.env['HTTP_PROXY'],
   'https-proxy': process.env['HTTPS_PROXY']

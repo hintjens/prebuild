@@ -12,7 +12,15 @@ function runGyp (opts, version, cb) {
   })
 
   function run () {
-    var args = ['node', 'index.js', 'rebuild', '--target=' + version, '--target_arch=' + opts.arch]
+    var args = ['node', 'index.js']
+    if (opts.incremental === true) {
+      args.push('configure')
+      args.push('build')
+    } else {
+      args.push('rebuild')
+    }
+    args.push('--target=' + version)
+    args.push('--target_arch=' + opts.arch)
     if (opts.debug) args.push('--debug')
 
     gyp({
